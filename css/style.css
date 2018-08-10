@@ -1,0 +1,343 @@
+body{
+  display:flex;
+  flex-direction:column;
+  min-width: 1200px;
+}
+#form-box img{
+  margin-bottom: 15px;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    flex-wrap:nowrap;
+    min-width: 1200px;
+    flex-shrink:0;
+    font-family: 'Jua', sans-serif;
+    justify-content: center;
+    align-content: center;
+
+}
+.container2{
+  display: flex;
+min-width: 1200px;
+  flex-wrap:nowrap;
+  flex-shrink:0;
+  font-family: 'Jua', sans-serif;
+
+}
+.container-row{
+  display:flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-shrink:0;
+  align-content: center;
+  justify-content:flex-end;
+
+}
+main-img{
+  border-right:1px solid gray;
+  padding-right:10px;
+  width: 662px;
+}
+header{
+
+    padding-left:0px;
+    padding-top:40px;
+    padding-bottom: 40px;
+    display:flex;
+    flex-direction:column;
+
+}
+
+footer{
+    border-top:1px solid gray;
+    padding:10px;
+    text-align: center;
+    font-family: 'Jua', sans-serif;
+    min-width: 1200px;
+    flex-shrink: 0;
+}
+
+footer a{
+  color:#282f3a;
+}
+.content{
+    display:flex;
+
+    margin: 10px;
+}
+.content nav{
+    border-right:1px solid gray;
+}
+.box
+{
+  border-bottom:1px solid #282f3a;
+  border-top:1px solid #282f3a;
+}
+.content aside{
+    padding:3px;
+
+}
+.contain
+{
+  display:flex;
+  justify-content: space-between;
+
+}
+.flexbox-row{
+  display:flex;
+  flex-direction:row;
+
+}
+navbar{
+  min-width: 1200px;
+  flex-shrink: 0;
+}
+centerbox{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top:20px;
+}
+centerbox h5{
+  margin-bottom: 20px;
+}
+main{
+    min-width: 1000px;
+    padding:5px 10px;
+    margin-left:25px;
+    padding-right::10px;
+    margin-right: 15px;
+    border-left: 1px solid #282f3a;
+    border-right:1px solid #282f3a;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+a:hover {
+
+}
+.nav .search-container{ ;}
+#banner-left{
+width:180px;
+
+}
+#form-box{
+  margin-left:30px;
+  min-width:220px;
+  flex-basis:300px;
+  flex-direction:column;
+}
+.product{
+display:flex;
+flex-direction:column;
+justify-content:space-around;
+
+}
+.product-row{
+  display:flex;
+  flex-direction:row;
+  margin:8px;
+  padding:3px;
+  /*justify-content:space-around;*/
+
+}
+.product img{
+padding:5px;
+
+}
+.product-row img{
+
+
+}
+.product h6,p{display:inline-block;}
+.product-box{
+  width:560px;
+}
+.product-description{
+  display:flex;
+  flex-direction:row;
+  justify-content:space-between;
+
+}
+.buttonlayout-row
+{
+  display:flex;
+  flex-direction:row;
+
+  justify-content:space-around;
+
+}
+.buttonlayout-row a{
+  margin-right:10px;
+  margin-left:10px;
+  min-width: 270px;
+}
+.buttonlayout-row button{
+  margin-right:10px;
+  margin-left:10px;
+  min-width: 270px;
+}
+.buttonlayout-row #button{
+
+}
+.box-row
+{
+padding:5px;
+display:flex;
+justify-content:space-around;
+
+
+}
+description1{
+ width:280px;
+ margin-left:10px;
+}
+description2{
+ width:280px;
+ padding-left:10px;
+ margin-left:10px;
+}
+.utilMenu
+{
+font-size:15px;
+border-bottom:1px solid #e8e8e8; line-height:43px; *zoom:1;
+}
+.utilMenu span{
+font-size:11px;
+}
+.utilMenu p { float:left; padding:0 10px 0 10px; background:url("//img.echosting.cafe24.com/skin/base/common/ico_bar2.gif") no-repeat 0 15px; }
+.item-left a
+{
+border: 2px solid #282f3a;
+border-radius: 10px;
+margin:3px;
+height: 40px;
+}
+.item-left hover
+{
+background-color: #4f5e77;
+}
+.nav2
+{
+display:flex;
+flex-wrap: nowrap;
+
+justify-content: center;
+}
+.container2 ul
+{
+min-width: 620px;
+}
+#box
+{
+display: block;
+display:flex;
+align-self: flex-end;
+justify-content:flex-end;
+flex-wrap:nowrap;
+flex-shrink: 0;
+margin-left:170px;
+}
+.top
+{
+  min-width: 1200px;
+  flex-shrink: 0;
+
+background-color: #cde2b3;
+
+}
+/* The Modal (background) */
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    padding-top: 60px;
+}
+
+/* Modal Content/Box */
+.modal-content {
+    background-color: #fefefe;
+    margin: 5px auto; /* 15% from the top and centered */
+    border: 1px solid #888;
+    width: 30%; /* Could be more or less, depending on screen size */
+}
+
+/* The Close Button */
+.close {
+    /* Position it in the top right corner outside of the modal */
+    position: absolute;
+    right: 25px;
+    top: 0;
+    color: #000;
+    font-size: 35px;
+    font-weight: bold;
+}
+img#blah {
+    margin-top: 15px;
+}
+#login {
+  align-self: center;
+  padding-left:8px;
+  text-align: center;
+}
+.container3
+{
+    display:flex;
+    flex-direction: column;
+    padding:10px;
+}
+/* Close button on hover */
+.close:hover,
+.close:focus {
+    color: red;
+    cursor: pointer;
+}
+
+/* Add Zoom Animation */
+.animate {
+    -webkit-animation: animatezoom 0.6s;
+    animation: animatezoom 0.6s
+}
+
+@-webkit-keyframes animatezoom {
+    from {-webkit-transform: scale(0)}
+    to {-webkit-transform: scale(1)}
+}
+
+@keyframes animatezoom {
+    from {transform: scale(0)}
+    to {transform: scale(1)}
+}
+.pagination a {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    transition: background-color .3s;
+}
+
+/* Style the active/current link */
+.pagination a.active {
+    background-color: dodgerblue;
+    color: white;
+}
+#page{
+  display:flex;
+  justify-content: center;
+
+}
+.pagination
+{
+  align-self:center;
+}
+/* Add a grey background color on mouse-over */
+.pagination a:hover:not(.active) {background-color: #ddd;}
