@@ -38,8 +38,9 @@
               $sql = "SELECT * FROM artwork where artwork_id='{$artwork_id}'";
               $result=mysqli_query($conn,$sql);
               $row = mysqli_fetch_assoc($result);//row 배열안에 해당 사용자가 등록한 작품의 행(정보)담겨있음
-              $image_dir="..\..\artwork_img\\";
+              $image_dir="..\account\memberimg\\".$_SESSION['member_stid']."\\img\\";
               $image_path=$image_dir.htmlspecialchars($row['artwork_image']);
+
               $artwork_title= htmlspecialchars($row['artwork_title']);
               $artwork_kinds=$row['artwork_kinds'];
               $artwork_materials=htmlspecialchars($row['artwork_materials']);
@@ -61,7 +62,7 @@
   <img src="<?php echo $image_path;  ?>" alt="이미지를 등록해 주세요" width="290px" height="290px">
 
   <div class="form-group">
-    <input type="file" class="form-control-file border" name="image" >
+    <input type="file" class="form-control-file border" name="image" value="<?php echo $row['artwork_image'] ?>" >
   </div>
 
 

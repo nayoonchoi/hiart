@@ -26,6 +26,7 @@
   //DB로 부터 맴버의 아이디와 패스워드 테이블 가져옴
   $sql = "SELECT * FROM member where member_username='$user_id'";
   $result=mysqli_query($conn,$sql);
+
 /*
   if (mysqli_num_rows($result) > 0) {
       // output data of each row
@@ -46,6 +47,7 @@
           $_SESSION['member_username']=$user_id;//로그인 성공시 세션 변수 만듬
           $_SESSION['member_name']=$row['member_name'];//로그인한 회원의 이름 저장
           $_SESSION['authorized']=$row['member_authority'];//권한이 있는 사용자임을 나타내는 세션변수
+          $_SESSION['member_stid']=$row['member_stid'];
           if(isset($_SESSION['member_username']))//세션변수가 참일때
           {
               //로그인 성공시 연결할 페이지 입력

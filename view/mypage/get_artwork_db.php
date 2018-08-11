@@ -3,6 +3,7 @@ if(!isset($_SESSION))
 {
   session_start();
 }
+require_once('../file_func.php');
 $conn=mysqli_connect('localhost','root','123456','art_platform');//디비 접속
 if(mysqli_connect_errno())
 {
@@ -31,7 +32,7 @@ if(mysqli_num_rows($result) >0)
 {
     while($row2 = mysqli_fetch_assoc($result))
     {
-      $image_dir="..\..\artwork_img\\";
+      $image_dir="..\account\memberimg\\".$row['member_stid']."\\img\\";
       $image_path=$image_dir.htmlspecialchars($row2['artwork_image']);
       echo "<div class=\"product-row\" >";
       echo '<img src=';

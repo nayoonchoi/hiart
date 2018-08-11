@@ -100,23 +100,36 @@ if(mysqli_num_rows($result) >0)//동일한 username 존재
   echo "window.location.replace('register.php');</script>";
   //header('Location: ./register.php');
   exit;
+
+
 }
 else {
 
+  $sql = "SELECT * FROM member where member_stid='$stid'";
+  $result=mysqli_query($conn,$sql);
+  if(mysqli_num_rows($result) >0)//동일한 학번 존재
+  {
 
- $sql = "insert into member( member_username,member_pw,member_name, member_nickname, member_phone, member_stid, member_gender,member_email,member_image)";
- $sql = $sql. "values('$username','$password','$name','$nickname','$phone','$stid','$gendertype','$email','$member_image')";
+      header("Content-Type: text/html; charset=UTF-8");
+      echo "<script>alert('사용중인 학번 입니다. 이미 가입된 사용자 입니다.');";
+      echo "window.location.replace('register.php');</script>";
+      //header('Location: ./register.php');
+      exit;
+  }
+  else {
+    $sql = "insert into member( member_username,member_pw,member_name, member_nickname, member_phone, member_stid, member_gender,member_email,member_image)";
+    $sql = $sql. "values('$username','$password','$name','$nickname','$phone','$stid','$gendertype','$email','$member_image')";
 
- if(mysqli_query($conn,$sql))
- {
-   echo 'success inserting';
- }else{
-  echo 'fail to insert sql';
- }
-
- mysqli_close($conn);
-
- header('Location: ./registered.php');
-exit;
+    if(mysqli_query($conn,$sql))
+    {
+      echo 'success inserting';
+    }else{
+     echo 'fail to insert sql';
+    }
+  }
 }
+mysqli_close($conn);
+
+header('Location: ./registered.php');
+exit;
 ?>
