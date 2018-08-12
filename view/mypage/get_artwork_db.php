@@ -32,8 +32,8 @@ if(mysqli_num_rows($result) >0)
 {
     while($row2 = mysqli_fetch_assoc($result))
     {
-      $image_dir="..\account\memberimg\\".$row['member_stid']."\\img\\";
-      $image_path=$image_dir.htmlspecialchars($row2['artwork_image']);
+      $image_dir="..\account\memberimg\\".$_SESSION['member_stid']."\\img\\";
+      $image_path=$image_dir.$row2['artwork_image'];
       echo "<div class=\"product-row\" >";
       echo '<img src=';
       echo $image_path;

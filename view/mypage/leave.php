@@ -28,7 +28,7 @@
               <p>정말 탈퇴하시겠어요?</p>
               <p>탈퇴 안하시면 안되요?ㅠㅠㅠ</p>
               <p>그래도 하시겠다면 ,,, 그동안 함께해주셔서 감사합니다</p>
-              <form method="post" action="../leave_db.php">
+              <form method="post" action="./leave_db.php">
                 <button type="submit"class="btn btn-primary">회원 탈퇴하기</button>클릭!!
 
 

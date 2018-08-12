@@ -32,7 +32,7 @@
 <input type='hidden' name='' value='' />
 <div class="contain">
   <div id=form-box>
-  <form action="/action_page.php">
+
     <?php
 
     //DB접속
@@ -48,16 +48,17 @@
     $sql = "SELECT * FROM member where member_username='$user_id'";
     $result=mysqli_query($conn,$sql);
     $row = mysqli_fetch_assoc($result);//row 배열안에 해당 사용자의 행(정보)담겨있음
-    $image_dir="../account/memberimg/";
+
+    $image_dir="..\account\memberimg\\".$_SESSION['member_stid']."\\";
     $image_path=$image_dir.$row['member_image'];
 
     ?>
    <img src="<?php echo $image_path;?>" alt="이미지를 등록해 주세요" width="200px" height="250px">
   <div class="form-group">
-    <input type="file" class="form-control-file border" name="file">
+    <input type="file" class="form-control-file border" name="file" value="<?php echo $row['member_image'] ?>">
   </div>
-  <button type="submit" class="btn btn-secondary">사진 수정</button>
-</form>
+
+
 </div>
 <div id="form-box">
 

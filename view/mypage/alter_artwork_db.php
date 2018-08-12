@@ -65,7 +65,6 @@ if($UpFile) // 업로드할 화일이 있는지 확인
    'description'=>mysqli_real_escape_string($conn, $_POST['description'])
 
  );
-//print_r($filtered);
 
  $sql = "
    UPDATE artwork

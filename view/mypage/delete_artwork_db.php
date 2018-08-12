@@ -28,13 +28,14 @@ if(mysqli_query($conn,$sql))
   echo "<script>alert('작품삭제 완료.');";
   echo "window.location.replace('registered.php');</script>";
 }else{
-  echo "<script>alert('작품삭제 실패.');";
+  //echo mysqli_error($conn);
+ echo "<script>alert('작품삭제 실패.');";
   echo "window.location.replace('registered.php');</script>";;
 }
 
-//
+
 mysqli_close($conn);
 exit;
-//header('Location: ./registered.php');
+header('Location: ./registered.php');
 
 ?>
