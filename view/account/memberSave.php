@@ -39,7 +39,8 @@ mkdir($path);
 $path2="..\account\memberimg\\".$stid."\\img";
 mkdir($path2);
 //받은 이미지 파일 처리
-$member_image=$_FILES['image']['name'];//이미지 이름
+$member_image1=$_FILES['image']['name'];//이미지 이름
+$member_image=preg_replace("/\s+/","",$_member_image1);
 //$target=$path.$member_image;//이미지를 저장할 경로
 $target="..\account\memberimg\\".$stid."\\".$member_image;
 $tmp_name=$_FILES['image']['tmp_name'];//이미지가 임시로 저장되는 경로

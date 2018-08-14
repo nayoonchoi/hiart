@@ -27,11 +27,7 @@
               <p>회원정보를 수정하는 페이지 입니다.</p>
 
 
-<form method="post" action="alter_member_db.php">
 
-<input type='hidden' name='' value='' />
-<div class="contain">
-  <div id=form-box>
 
     <?php
 
@@ -53,9 +49,12 @@
     $image_path=$image_dir.$row['member_image'];
 
     ?>
-   <img src="<?php echo $image_path;?>" alt="이미지를 등록해 주세요" width="200px" height="250px">
-  <div class="form-group">
-    <input type="file" class="form-control-file border" name="file" value="<?php echo $row['member_image'] ?>">
+    <form method="post" action="alter_member_db.php"enctype="multipart/form-data">
+    <div class="contain">
+      <div id=form-box>
+   <img src="<?php echo $image_path?>" alt="이미지를 등록해 주세요" width="200px" height="250px">
+  <div>
+      <input type="file" class="form-control-file border" name="picture">
   </div>
 
 
@@ -64,9 +63,9 @@
 
 <div>
   <label for="id_username">사용자 이름:</label>
-  <input class="form-control" type="text" name="username" maxlength="150" id="id_username" placeholder="<?php $row['member_username'];?>" value="<?php echo $row['member_username']; ?>"/>
+  <input class="form-control" type="text"  maxlength="150" id="id_username" placeholder="<?php $row['member_username'];?>" value="<?php echo $row['member_username']; ?>"disabled/>
 </div>
-  <p>150자 이하 문자, 숫자 그리고 @/./+/-/_만 가능합니다.</p></br >
+  <p style="color:red;">사용자 이름은 변경할 수 없습니다.</p></br >
 
 <div>
   <label for="id_password1">비밀번호:</label>
@@ -100,7 +99,8 @@
 </div>
 <div>
   <label for="id_stid">학번:</label>
-  <input  class="form-control"type="text" name="stid" id="id_stid" placeholder="<?php echo $row['member_stid'];?>" value="<?php echo $row['member_stid'];?>"/>
+  <input  class="form-control"type="text" id="id_stid" placeholder="<?php echo $row['member_stid'];?>" value="<?php echo $row['member_stid'];?>" disabled/>
+<p style="color:red;">학번은 변경할 수 없습니다.</p>
 </div>
 <div>
   <label for="id_gender">성별:  </label>
