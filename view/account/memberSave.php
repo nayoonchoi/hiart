@@ -83,7 +83,28 @@ switch($gendertype)
   exit;
 }
 //데이터 모두 입력 했는지 검사
-
+//홍익대학교 학생의 학번 형식 검사
+if(substr(trim($_POST['stid']), 0, 1) != 'a' && substr(trim($_POST['stid']), 0, 1) != 'b')
+{
+  header("Content-Type: text/html; charset=UTF-8");
+  echo "<script>alert('홍익대학교 학생의 학번 형식이 다릅니다.');";
+  echo "window.location.replace('register.php');</script>";
+  exit;
+}
+if(!is_numeric(substr(trim($_POST['stid']), 1)))
+{
+  header("Content-Type: text/html; charset=UTF-8");
+  echo "<script>alert('홍익대학교 학생의 학번 형식이 다릅니다.');";
+  echo "window.location.replace('register.php');</script>";
+  exit;
+}
+if(!(strlen(trim($_POST['stid'])) == 7 || strlen(trim($_POST['stid'])) == 8))
+{
+  header("Content-Type: text/html; charset=UTF-8");
+  echo "<script>alert('홍익대학교 학생의 학번 형식이 다릅니다.');";
+  echo "window.location.replace('register.php');</script>";
+  exit;
+}
 if(!$username||!$password||!$name||!$nickname||!$phone||!$stid||!$gendertype||!$email)
 {
   header("Content-Type: text/html; charset=UTF-8");

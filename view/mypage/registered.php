@@ -55,19 +55,21 @@
 
                 </div>
               </section>
-
+<!--
               <div id="page">
               <div class="pagination">
-                <a href="#">&laquo;</a>
-                <a href="#">1</a>
-                <a class="active" href="#">2</a>
-                <a href="#">3</a>
-                <a href="#">4</a>
-                <a href="#">5</a>
-                <a href="#">6</a>
-                <a href="#">&raquo;</a>
+                <?php
+                for ($p=$s_page; $p<=$e_page; $p++) {
+                ?>
+
+                    <a href="<?="http://localhost/HI_ART/view/mypage/registered.php"?>?page=<?=$p?>"><?=$p?></a>
+
+                <?php
+                }
+                ?>
               </div>
             </div>
+          -->
   </main>
 
         </section>

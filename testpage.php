@@ -1,40 +1,23 @@
+<?php session_start(); ?>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css">
+<link rel="stylesheet" href="/HI_ART/css/style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Annie+Use+Your+Telescope" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Poor+Story|Jua|Sunflower:300" rel="stylesheet">
 <?php
-if(!isset($_SESSION))
-{
-  session_start();
-}
-require_once('../file_func.php');
 $conn=mysqli_connect('localhost','root','123456','art_platform');//디비 접속
 if(mysqli_connect_errno())
 {
   echo "Failed to connect to mysql:". mysqli_connect_errno();
 }
+$data = mysqli_query($conn,"SELECT * FROM artwork ");
+$num = mysqli_num_rows($data);
 
-//접속한 놈의 member_id부터 알아낸다.
-//db artwork 테이블에 등록한 사람을 seller_id에 그 인간의 member_id로 저장해놔서 알아내야됨
-$sql = "SELECT * FROM member where member_username='{$_SESSION['member_username']}'";
-
-
-if(mysqli_query($conn,$sql))
-
-$result=mysqli_query($conn,$sql);
-$row = mysqli_fetch_assoc($result);
-
-//htmlspecialchars — Convert special characters to HTML entities
-$seller_id=htmlspecialchars($row['member_id']);//seller_id 변수에  등록한 놈의 member_id를 저장
-//echo $seller_id;
-//seller_id를 알아 냈으니깐 그 seller_id로 등록된 작품이 있는지 뭔지 꺼내와야함
-$sql = "SELECT * FROM artwork where seller_id='{$seller_id}'";
-$result=mysqli_query($conn,$sql);
-$num= mysqli_num_rows($result);//상품 총 갯수
-if(isset($_GET['page']))
-{
-  $page = ($_GET['page']);
-}
-else {
-  $page=1;
-}
-
+$page = ($_GET['page'])?$_GET['page']:1;
 $list = 5;
 
 $block = ceil($page/5);
@@ -53,26 +36,37 @@ if ($total_page <= $e_page) {
 }
 
 
-//$row1 = mysqli_fetch_assoc($result);
-/*
-echo "현재 페이지는".$page."<br/>";
-echo "현재 블록은".$nowBlock."<br/>";
 
-echo "현재 블록의 시작 페이지는".$s_page."<br/>";
-echo "현재 블록의 끝 페이지는".$e_page."<br/>";
+?>
 
-echo "총 페이지는".$total_page."<br/>";
-echo "총 블록은".$blockNum."<br/>";
-echo "상품의 총 갯수".$num."<br/>";
-*/
+<div id="page">
+<div class="pagination">
+<?php
+for ($p=$s_page; $p<=$e_page; $p++) {
+?>
+
+    <a href="<?="http://localhost/HI_ART/testpage.php"?>?page=<?=$p?>"><?=$p?></a>
+
+<?php
+}
+?>
+
+</div>
+</div>
+
+
+
+
+<?php
 $s_point = ($page-1) * $list;
-$sql="SELECT * FROM artwork where seller_id='{$seller_id}' LIMIT $s_point,$list";
-$real_data = mysqli_query($conn,$sql);
 
-for ($i=1; $i<=mysqli_num_rows($real_data);$i++) {
 
-              $row2 = mysqli_fetch_assoc($real_data);
+$real_data = mysqli_query($conn,"SELECT * FROM artwork ORDER BY artwork_id DESC LIMIT $s_point,$list");
 
+for ($i=1; $i<=$num; $i++) {
+
+            $row2 = mysqli_fetch_assoc($real_data);
+            {
               $image_dir="..\account\memberimg\\".$_SESSION['member_stid']."\\img\\";
               $image_path=$image_dir.$row2['artwork_image'];
               echo "<div class=\"product-row\" >";
@@ -132,22 +126,15 @@ for ($i=1; $i<=mysqli_num_rows($real_data);$i++) {
               echo "</div>";
               echo "</div>";
 
-
-            if ($row2== false) {
-                exit;
             }
-          }
-          ?>
-          <div id="page">
-          <div class="pagination">
-            <?php
-            for ($p=$s_page; $p<=$e_page; $p++) {
-            ?>
 
-                <a href="<?="http://localhost/HI_ART/view/mypage/registered.php"?>?page=<?=$p?>"><?=$p?></a>
+        //mysqli_close($conn);
+         ?>
+    </div>
 
-            <?php
-            }
-            ?>
-          </div>
-        </div>
+<?php
+    if ($row2== false) {
+        exit;
+    }
+}
+?>
