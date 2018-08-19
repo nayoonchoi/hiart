@@ -28,25 +28,25 @@
             </li>
           <?php } else { ?>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/painting.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif;  ">회화</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=회화" style="color:#f4f5f7; font-family: 'Jua', sans-serif;  ">회화</a>
             </li>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/craft.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">공예</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=공예" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">공예</a>
             </li>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/design.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">디자인</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=디자인" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">디자인</a>
             </li>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/art_piece.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">아트상품</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=아트상품" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">아트상품</a>
             </li>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/picture.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">사진</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=사진" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">사진</a>
             </li>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/engraving.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">판화</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=판화" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">판화</a>
             </li>
             <li class="nav-item"style="flex-shrink:0">
-              <a class="nav-link" href="/HI_ART/view/navbar/etc.php" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">기타</a>
+              <a class="nav-link" href="/HI_ART/view/navbar/artwork_kinds.php?kind=기타" style="color:#f4f5f7; font-family: 'Jua', sans-serif; ">기타</a>
             </li>
           <?php } ?>
         </ul>

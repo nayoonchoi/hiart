@@ -34,20 +34,19 @@ unlink($image_delete_path);
 
 //2.넘겨받은 이미지를 서버에 저장하고 DB에 반영시키기
 
-$UpFile = $_FILES['image']['name'];//$upfile에 넘겨받은 파일(이미지)이름저장
+
 //$imagename=preg_replace($_FILES['image']['name']);
 //$artwork_image=$row2["member_enrollnum"].$imagename;//이미지 이름
 $tmp_name=$_FILES['image']['tmp_name'];//이미지가 임시로 저장되는 경로
 
 $path="..\account\memberimg\\".$_SESSION['member_stid']."\\img\\";
 $imagename=preg_replace("/\s+/","",$_FILES['image']['name']);
-$artwork_image=$imagename;//이미지 이름
-$target=$path.$artwork_image;
+$target=$path.$imagename;
 $tmp_name=$_FILES['image']['tmp_name'];//이미지가 임시로 저장되는 경로
 
-if($UpFile) // 업로드할 화일이 있는지 확인
+if($imagename) // 업로드할 화일이 있는지 확인
 {
-  $FileName = GetUniqFileName($UpFile, $path); // 같은 화일 이름이 있는지 검사
+  $FileName = GetUniqFileName($imagename, $path); // 같은 화일 이름이 있는지 검사
   $target1=$path.$FileName;
   move_uploaded_file($tmp_name,$target1); // 화일을 업로드 위치에 저장
 }

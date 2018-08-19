@@ -23,6 +23,13 @@ if(mysqli_connect_errno())
 //$image=$_POST['image']
 $title=$_POST['title'];
 $price=$_POST['price'];
+if (!filter_var($price, FILTER_VALIDATE_INT)) {
+
+  echo "<script>alert('가격은 숫자만 입력 가능합니다.');";
+  echo "window.location.replace('set_artwork.php');</script>";
+  exit;
+
+}
 $kind=$_POST['kind'];
 $material=$_POST['material'];
 $size=$_POST['size'];
@@ -44,9 +51,10 @@ $artwork_image=$imagename;//이미지 이름
 $target=$path.$artwork_image;
 $tmp_name=$_FILES['image']['tmp_name'];//이미지가 임시로 저장되는 경로
 
-if($UpFile) // 업로드할 화일이 있는지 확인
+if($imagename) // 업로드할 화일이 있는지 확인
 {
-  $FileName = GetUniqFileName($UpFile, $path); // 같은 화일 이름이 있는지 검사
+  $FileName = GetUniqFileName($imagename, $path); // 같은 화일 이름이 있는지 검사
+
   $target1=$path.$FileName;
   move_uploaded_file($tmp_name,$target1); // 화일을 업로드 위치에 저장
 }

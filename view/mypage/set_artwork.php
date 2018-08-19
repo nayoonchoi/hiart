@@ -51,8 +51,9 @@
 </div>
 
 <div>
-  <label for="id_price">희망 가격:</label>
+  <label for="id_price">희망 가격(원):</label>
   <input class="form-control" type="text" name="price" required id="id_price" />
+  <p style="color:red">숫자만 입력 가능합니다.</p>
 </div>
 <p></br> 작품 종류: </p>
 
