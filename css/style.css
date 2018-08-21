@@ -57,7 +57,10 @@ footer{
     min-width: 1200px;
     flex-shrink: 0;
 }
-
+#align_right{
+  display: flex;
+  justify-content: flex-end;
+}
 footer a{
   color:#282f3a;
 }

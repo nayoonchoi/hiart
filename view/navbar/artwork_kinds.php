@@ -34,6 +34,12 @@
                                     <li>
                                     <ul>
                                 </div>
+                                <div id="align_right">
+                                  <a href='<?="http://localhost/HI_ART/view/navbar/artwork_kinds.php"?>?kind=<?php echo $_GET['kind']; $ordertype='asc';?>&ordertype=<?='asc' ?>'>[낮은 가격순]</a>
+                                  <a href='<?="http://localhost/HI_ART/view/navbar/artwork_kinds.php"?>?kind=<?php echo $_GET['kind']; $ordertype='desc';?>&ordertype=<?='desc' ?>'>[높은 가격순]</a>
+
+                                </div>
+
 
                   <div >
                     <?php
@@ -59,6 +65,15 @@
                     else {
                       $page=1;
                     }
+                    if(isset($_GET['ordertype']))
+                    {
+                      $ordertype = ($_GET['ordertype']);
+                    }
+                    else {
+                      $ordertype='asc';
+                      $_GET['ordertype']='asc';
+                    }
+
 
                     $list = 5;
 
@@ -91,7 +106,14 @@
                     */
 
                     $s_point = ($page-1) * $list;
-                    $sql="SELECT * FROM artwork_with_stid where artwork_kinds='{$_GET['kind']}' LIMIT $s_point,$list";
+                    if($_GET['ordertype']=="asc")
+                    {
+                    $sql="SELECT * FROM artwork_with_stid where artwork_kinds='{$_GET['kind']}' ORDER BY artwork_price ASC LIMIT $s_point,$list";
+                    }
+                    else
+                    {
+                        $sql="SELECT * FROM artwork_with_stid where artwork_kinds='{$_GET['kind']}' ORDER BY artwork_price DESC LIMIT $s_point,$list";
+                    }
                     $real_data = mysqli_query($conn,$sql);
 
                     for ($i=1; $i<=mysqli_num_rows($real_data);$i++) {
@@ -165,7 +187,7 @@
                                 for ($p=$s_page; $p<=$e_page; $p++) {
                                 ?>
 
-                                    <a href="<?="http://localhost/HI_ART/view/navbar/artwork_kinds.php"?>?page=<?=$p?>"><?=$p?></a>
+                                    <a href="<?="http://localhost/HI_ART/view/navbar/artwork_kinds.php"?>?kind=<?=$_GET['kind']?>&page=<?=$p?>"><?=$p?></a>
 
                                 <?php
                                 }
